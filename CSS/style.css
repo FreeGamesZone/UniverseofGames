@@ -343,4 +343,22 @@ footer {
     right: 15px;
   }
 }
+.play-btn {
+  width: 85%;
+  margin: 12px auto 18px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #022c22;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(34,197,94,0.6);
+  transition: 0.3s ease;
+}
 
+.play-btn:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 40px #22c55e;
+}
