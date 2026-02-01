@@ -362,3 +362,73 @@ footer {
   transform: scale(1.07);
   box-shadow: 0 0 40px #22c55e;
 }
+/* ================= MOBILE VERSION ================= */
+@media screen and (max-width: 768px) {
+
+  /* TOP BAR */
+  .topbar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* LOGO CENTER */
+  .topbar .logo img {
+    height: 90px;
+  }
+
+  /* SEARCH BELOW LOGO */
+  #searchInput {
+    width: 95%;
+    text-align: center;
+  }
+
+  /* HERO SLIDER TEXT */
+  .slide-content {
+    left: 5%;
+    right: 5%;
+    bottom: 12%;
+    padding: 18px;
+  }
+
+  .slide-content h1 {
+    font-size: 24px;
+  }
+
+  /* GAMES HEADING */
+  .section-title {
+    text-align: center;
+    font-size: 22px;
+  }
+
+  /* ✅ 2 CARDS PER ROW */
+  .games {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card img {
+    height: 120px;
+  }
+
+  .card h3 {
+    font-size: 14px;
+  }
+
+  /* ABOUT / FOOTER */
+  footer {
+    font-size: 13px;
+  }
+
+  /* FOLDERS LAST */
+  .folders {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .folder {
+    font-size: 16px;
+    padding: 16px;
+  }
+}
