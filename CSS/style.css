@@ -47,7 +47,13 @@ body { background: linear-gradient(180deg, #020617, #0f172a); color: #e5e7eb; ov
     align-items: center;
 }
 
-.card:hover { transform: translateY(-10px); }
+/* Yahan Glow Effect add kiya hai */
+.card:hover { 
+    transform: translateY(-10px); 
+    border-color: #38bdf8; 
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); 
+}
+
 .card img { width: 100%; height: 160px; object-fit: cover; }
 .card h3 { padding: 12px 10px 5px; color: #e5e7eb; font-size: 1.1rem; }
 .card p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 15px; }
@@ -84,14 +90,52 @@ body { background: linear-gradient(180deg, #020617, #0f172a); color: #e5e7eb; ov
 footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8; }
 
 /* --- Mobile Optimization --- */
+/* --- Mobile Optimization Fixed --- */
 @media (max-width: 768px) {
-    .topbar { flex-direction: column; padding: 10px; min-height: auto; gap: 10px; }
-    .logo-img { height: 50px; }
-    .main-nav { gap: 10px; }
-    .nav-btn { padding: 8px 12px; font-size: 12px; }
-    #searchInput { width: 90%; }
-    .hero-slider { height: 40vh; }
-    .games { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 15px; }
-    .card img { height: 120px; }
-    .play-btn { font-size: 0.8rem; padding: 8px; }
+    .topbar { 
+        position: sticky; /* Ab ye scroll ke sath niche aayega */
+        top: 0;
+        flex-direction: column; 
+        padding: 15px 10px; 
+        min-height: auto; 
+        gap: 12px; 
+        height: auto; /* Content ke hisab se height adjust hogi */
+    }
+
+    .logo-img { 
+        height: 110px; /* Logo ka size bada kar diya */
+        width: auto;
+    }
+
+    .main-nav { 
+        gap: 8px; 
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-btn { 
+        padding: 6px 10px; 
+        font-size: 11px; 
+    }
+
+    #searchInput { 
+        width: 95%; 
+        padding: 8px 12px;
+    }
+
+    .hero-slider { height: 35vh; }
+
+    .games { 
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+        padding: 10px; 
+    }
+
+    .card img { height: 110px; }
+
+    .play-btn { 
+        font-size: 0.75rem; 
+        padding: 8px; 
+        width: 90%;
+    }
 }
