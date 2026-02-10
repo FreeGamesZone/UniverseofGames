@@ -8,20 +8,22 @@
     <meta name="keywords" content="Universe of Games, play free games online, download PC games, Minecraft online, free browser games">
     <meta name="author" content="Abdul Rehman">
     <link rel="icon" href="logo1.png">
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GKP2YF314"></script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-7GKP2YF314"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-7GKP2YF314');
     </script>
-
     <script src="https://unskilledaccompanimentcircumstances.com/17/57/3d/17573d5ef7cfe45f06b7a0eba21a9951.js"></script>
+
+
 
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+
 <body>
 
 <canvas id="snow"></canvas>
@@ -29,6 +31,14 @@
 <div id="gameModal" class="modal-overlay hidden">
     <div class="modal-content">
         <button id="closeModal">✖ Close</button>
+   <div id="gameLoader" class="loader-container">
+    <div class="infinity-loader">
+        <svg viewBox="0 0 250 100">
+            <path class="infinity-path" d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1c-8.9,9.9-13.2,17.4-22.9,17.4c-9.7,0-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"></path>
+        </svg>
+    </div>
+    <div class="loader-text">DROWNING IN PIXELS...</div>
+</div>
         <iframe id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>
@@ -57,16 +67,29 @@
             <input type="text" id="searchInput" placeholder="Search games...">
         </div>
     </header>
+<section class="hero">
+    <div class="video-background">
+        <iframe 
+            src="https://www.youtube.com/embed/MmB9b5njVbA?autoplay=1&mute=1&loop=1&playlist=MmB9b5njVbA&controls=0&rel=0&showinfo=0&iv_load_policy=3" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+        </iframe>
+    </div>
 
-    <section class="hero">
-        <div class="slide active" style="background-image: url('games/minecraft.jpg');">
-            <div class="slide-info">
-                <h1>Minecraft Classic</h1>
-                <button onclick="openGame('https://eaglercraft.com/play/?version=1.8.8')">Play Now</button>
+    <div class="hero-overlay">
+        <div class="slide-info">
+            <span class="trending-tag"><i class="fa-solid fa-fire"></i> TRENDING NOW</span>
+            <h1>UNIVERSE OF GAMES</h1>
+            <p>Experience the next generation of browser gaming with high-performance action.</p>
+            <div class="hero-btns">
+                <button class="play-btn" onclick="openGame('https://eaglercraft.com/play/?version=1.8.8')">
+                    <i class="fa-solid fa-play"></i> PLAY NOW
+                </button>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <h2 class="section-title" id="gamesList">🎮 All Games</h2>
     <div class="games-grid">
         <div class="card" onclick="openGame('https://eaglercraft.com/play/?version=1.8.8')">
@@ -147,11 +170,7 @@
         </section>
     </footer>
 </main>
-
 <script src="JS/main.js"></script>
 <script src="https://pl28665443.effectivegatecpm.com/17/57/3d/17573d5ef7cfe45f06b7a0eba21a9951.js"></script>
-
 </body>
-
 </html>
-

@@ -31,9 +31,20 @@ snowBtn.onclick = () => {
 };
 
 function openGame(url) {
-    document.getElementById("gameFrame").src = url;
+    const loader = document.getElementById("gameLoader");
+    const frame = document.getElementById("gameFrame");
+
+    loader.style.display = "block"; 
+    frame.src = url;
     document.getElementById("gameModal").classList.remove("hidden");
     document.body.style.overflow = "hidden";
+
+    frame.onload = () => {
+        // Thoda smooth fade out ke liye timeout bhi de sakte hain
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 500);
+    };
 }
 
 document.getElementById("closeModal").onclick = () => {

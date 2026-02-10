@@ -1,3 +1,108 @@
+.hero {
+    position: relative;
+    height: 450px;
+    margin: 25px 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 Aspect Ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 ratio maintain karne ke liye */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* User video click na kar sake */
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(11, 14, 20, 0.9) 30%, transparent 80%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    color: white;
+}
+
+.trending-tag {
+    background: rgba(188, 19, 254, 0.2);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--accent);
+}
+
+.slide-info p {
+    color: #94a3b8;
+    margin: 15px 0 25px;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+/* Play Button Glow Fix */
+.play-btn {
+    padding: 15px 35px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--accent);
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--accent);
+}
+.video-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+    pointer-events: none; /* User video par click na kar sake */
+    overflow: hidden;
+}
+
+.video-background iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 ratio fix */
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* this is after */
+
 :root {
     --bg: #0b0e14;
     --side: #05070a;
@@ -205,14 +310,124 @@ footer { padding: 40px; border-top: 1px solid #1a1f26; text-align: center; backg
     font-style: normal;
     font-weight: bold;
 }
-/* Mobile Responsive Fixes */
-@media (max-width: 768px) {
-    .sidebar { width: 0; opacity: 0; pointer-events: none; }
-    .main-content { margin-left: 0; }
-    .topbar { padding: 15px 20px; }
-    .search-bar { width: 140px; }
-    .search-bar:hover, .search-bar:focus-within { width: 220px; }
-    .hero { height: 280px; margin: 20px; }
-    .slide-info h1 { font-size: 2rem; }
-    .games-grid { padding: 0 20px 20px; gap: 15px; }
+.loader-container {
+    position: absolute;
+    /* Bottom aur Left se 30px ka gap rakha hai */
+    bottom: 20px; 
+    left: 20px;
+    
+    z-index: 20;
+    text-align: center;
+    /* Center se hatane ke liye transform ko hata diya */
+    transform: none; 
 }
+
+/* Loader ka size thoda chota kar rahe hain taake corner mein fit lage */
+.infinity-loader svg {
+    width: 300px; 
+    height: auto;
+}
+
+.loader-text {
+    margin-top: 5px;
+    font-size: 0.8rem; /* Corner ke liye text size thoda chota */
+    letter-spacing: 1px;
+}
+
+.infinity-loader {
+    width: 200px;
+    filter: drop-shadow(0 0 10px var(--accent));
+}
+
+.infinity-path {
+    fill: none;
+    stroke: url(#waterColorGradient); /* Gradient nichay define hai */
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: draw-infinity 2.5s linear infinite;
+    /* Water Color effect ke liye hum stroke ko gradient dete hain */
+    stroke: var(--accent); 
+}
+
+/* Infinity Drawing Animation */
+@keyframes draw-infinity {
+    0% { stroke-dashoffset: 400; stroke: var(--accent); }
+    50% { stroke: var(--cyan); }
+    100% { stroke-dashoffset: 0; stroke: var(--accent); }
+}
+
+.loader-text {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px var(--accent);
+    animation: pulse-text 1.5s infinite;
+}
+
+@keyframes pulse-text {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+/* Mobile Responsive Fixes */
+/* --- UPDATED MOBILE FRIENDLY SECTION --- */
+@media (max-width: 768px) {
+    /* 1. Sidebar ko hide karke space bachao */
+    .sidebar { display: none; }
+    .main-content { margin-left: 0; }
+
+    /* 2. Topbar ko compact karo */
+    .topbar {
+        padding: 15px;
+        flex-direction: column; /* Logo upar, search niche */
+        gap: 10px;
+    }
+    .topbar h2 { font-size: 1.2rem; }
+
+    /* 3. Search Bar ko full width karo */
+    .search-bar {
+        width: 100% !important;
+        box-shadow: 0 0 10px rgba(188, 19, 254, 0.3);
+    }
+
+    /* 4. Hero Section height kam karo */
+    .hero {
+        height: 220px;
+        margin: 15px;
+    }
+    .slide-info h1 { font-size: 1.5rem; }
+    .slide-info button { padding: 10px 20px; font-size: 0.9rem; }
+
+    /* 5. Games Grid: 2 Cards per row (Best for Mobile) */
+    .games-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px;
+        padding: 0 15px 20px;
+    }
+    .card img { height: 110px; }
+    .card h3 { font-size: 0.85rem; padding: 10px; }
+
+    /* 6. Modal ko Full Screen karo (Game khelne ke liye) */
+    .modal-content {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    #closeModal {
+        top: 10px;
+        right: 10px;
+        padding: 5px 15px;
+    }
+
+    /* 7. Footer text size */
+    .site-description { margin: 15px; padding: 20px; }
+    .description-content p { font-size: 0.9rem; }
+
+    /* 8. Loader size corner mein chota karo mobile ke liye */
+    .infinity-loader svg {
+        width: 120px;
+    }
+} 
